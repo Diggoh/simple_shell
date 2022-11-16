@@ -47,7 +47,6 @@ ssize_t input_buf(info_t *info, char **buf, size_t *len)
 /**
  * get_input - gets a line minus the newline
  * @info: parameter struct
-
  *
  * Return: bytes read
  */
@@ -60,7 +59,6 @@ ssize_t get_input(info_t *info)
 
 	_putchar(BUF_FLUSH);
 	r = input_buf(info, &buf, &len);
-
 	if (r == -1) /* EOF */
 		return (-1);
 	if (len)	/* we have commands left in the chain buffer */
@@ -106,7 +104,6 @@ ssize_t read_buf(info_t *info, char *buf, size_t *i)
 	if (*i)
 		return (0);
 	r = read(info->readfd, buf, READ_BUF_SIZE);
-
 	if (r >= 0)
 		*i = r;
 	return (r);
@@ -120,7 +117,6 @@ ssize_t read_buf(info_t *info, char *buf, size_t *i)
  *
  * Return: s
  */
-
 int _getline(info_t *info, char **ptr, size_t *length)
 {
 	static char buf[READ_BUF_SIZE];
@@ -172,3 +168,4 @@ void sigintHandler(__attribute__((unused))int sig_num)
 	_puts("$ ");
 	_putchar(BUF_FLUSH);
 }
+
